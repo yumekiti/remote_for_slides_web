@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <title>Slide Sync</title>
+    <title>Slide_Sync</title>
   </head>
   <body class="h-screen">
     <div class="h-full flex flex-col">
@@ -85,7 +85,7 @@
             <div class="absolute top-0 left-0 w-full h-full z-50 p-4 flex flex-col justify-start items-start">
               <!-- page number -->
               <h2 id="pageContainer" class="pb-2 text-gray-500 text-base flex">page <span id="page" class="ml-2 text-gray-800 text-2xl">1</span></h2>
-              <p class="text-gray-800 text-base overflow-auto" id="note">
+              <p class="text-gray-800 text-base overflow-auto whitespace-pre-wrap w-full h-full flex items-start justify-start" id="note">
                 ここにカンペが表示されます
               </p>
             </div>
