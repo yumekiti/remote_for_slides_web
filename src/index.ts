@@ -57,6 +57,10 @@ io.on("connection", (socket) => {
     io.to(value.uuid).emit('page', value);
   });
 
+  socket.on("text", (value) => {
+    io.to(value.uuid).emit("text", value);
+  });
+
   socket.on("disconnect", () => {
     console.log("socket disconnected");
   });

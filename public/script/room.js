@@ -1,3 +1,6 @@
+const note = document.getElementById("note");
+const page = document.getElementById("page");
+
 const [_, _room, roomId] = location.pathname.split("/");
 const socket = io.connect(location.host, {
   transports: ['websocket'],
@@ -12,19 +15,18 @@ socket.on("event", (value) => {
   console.log(value);
 });
 
-// socket.emit('page', { page: "12", url: url});
-// socket.on('page', (value) => {
-//   io.to(value.uuid).emit('page', value);
-// });
+note.style.display = "none";
+page.style.display = "none";
+
 socket.on("page", (value) => {
-  console.log(value);
+  page.style.display = "block";
+  page.textContent = value.page;
 });
 
-const noteContainer = document.getElementById("noteContainer");
-const note = document.getElementById("note");
-const page = document.getElementById("page");
-
-noteContainer.style.display = "none";
+socket.on("text", (value) => {
+  note.style.display = "block";
+  note.textContent = value.text;
+});
 
 const [prevButton, nextButton] = document.querySelectorAll("button");
 prevButton.addEventListener("click", () => {
