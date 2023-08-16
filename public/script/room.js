@@ -1,5 +1,7 @@
 const [_, _room, roomId] = location.pathname.split("/");
-const socket = io.connect(location.host);
+const socket = io.connect(location.host, {
+  transports: ['websocket'],
+});
 socket.emit("join", roomId);
 
 socket.on("connect", () => {
