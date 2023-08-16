@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <title>Remote for Slides</title>
+    <title>Slide Sync</title>
   </head>
   <body class="h-screen">
     <div class="h-full flex flex-col">
@@ -18,12 +18,20 @@
           <div class="max-w-7xl mx-auto px-8">
             <div class="flex items-center justify-between h-16">
               <div class="flex items-center">
-                <a class="flex-shrink-0" href="/">
+                <a class="flex-shrink-0 flex justify-center items-center gap-2" href="/">
                   <img
                     class="h-8"
                     src="/images/logo-light.svg"
-                    alt="Remote for Slides"
+                    alt="Slide Sync"
                   />
+                  <p class="text-2xl font-bold">
+                    <span class="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500">
+                      Slide
+                    </span>
+                    <span class="text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-pink-500 to-red-500">
+                      Sync
+                    </span>
+                  </p>
                 </a>
               </div>
               <div class="block">
@@ -53,20 +61,8 @@
             id="prevButton"
             class="relative text-xl font-bold w-full md:w-1/2 h-1/2 md:h-full bg-white border border-gray-200  hover:bg-gray-100 hover:shadow-lg focus:bg-gray-100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-200 active:shadow-lg transition duration-150 ease-in-out"
           >
-            <div class="opacity-10 flex justify-center items-center mx-auto w-full h-1/2">
-              <!--?xml version="1.0" encoding="utf-8"?-->
-              <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-              <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 100%; height: 100%; opacity: 1;" xml:space="preserve">
-                <style type="text/css">
-                  .st0{fill:#4B4B4B;}
-                </style>
-                <g>
-                  <path class="st0" d="M469.672,213.675H145.324L275.68,84.727c16.623-16.438,16.767-43.253,0.329-59.866
-                    c-16.438-16.624-43.243-16.767-59.867-0.328L12.566,225.901C4.52,233.863,0,244.691,0,256.003c0,11.312,4.52,22.13,12.566,30.093
-                    l203.576,201.368c16.624,16.438,43.428,16.304,59.867-0.33c16.438-16.613,16.294-43.417-0.329-59.855L145.324,298.322h324.347
-                    c23.374,0,42.328-18.945,42.328-42.319C512,232.62,493.045,213.675,469.672,213.675z"></path>
-                </g>
-              </svg>
+            <div class="opacity-10 flex justify-center items-center mx-auto w-full h-full">
+              <img src="/images/prev.svg" alt="prev" class="h-1/2" />
             </div>
             <div class="absolute top-0 left-0 w-full h-full z-50 p-4 flex flex-col justify-start items-start" id="noteContainer">
               <!-- page number -->
@@ -80,21 +76,8 @@
             id="nextButton"
             class="text-xl font-bold w-full md:w-1/2 h-1/2 md:h-full bg-white border border-gray-200  hover:bg-gray-100 hover:shadow-lg focus:bg-gray-100 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-200 active:shadow-lg transition duration-150 ease-in-out"
           >
-            <div class="opacity-10 flex justify-center items-center mx-auto w-full h-1/2">
-              <!--?xml version="1.0" encoding="utf-8"?-->
-              <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-              <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 100%; height: 100%; opacity: 1;" xml:space="preserve">
-                <style type="text/css">
-                  .st0{fill:#4B4B4B;}
-                </style>
-                <g>
-                  <path class="st0" d="M499.436,225.905L295.858,24.536c-16.623-16.438-43.428-16.305-59.866,0.328
-                    c-16.438,16.613-16.294,43.418,0.329,59.856l130.356,128.958H42.329C18.956,213.679,0,232.624,0,255.997
-                    c0,23.383,18.956,42.328,42.329,42.328h324.347L236.321,427.273c-16.623,16.438-16.767,43.254-0.329,59.867
-                    c16.438,16.622,43.243,16.766,59.866,0.328l203.578-201.368c8.044-7.963,12.564-18.792,12.564-30.102
-                    C512,244.685,507.479,233.866,499.436,225.905z" style="fill: rgb(75, 75, 75);"></path>
-                </g>
-              </svg>
+            <div class="opacity-10 flex justify-center items-center mx-auto w-full h-full">
+              <img src="/images/next.svg" alt="next" class="h-1/2" />
             </div>
           </button>
         </div>
@@ -105,63 +88,16 @@
           <div class="flex items-center justify-center">
             <!-- start -->
             <div class="text-white mr-2 h-12 p-2" id="start">
-              <!--?xml version="1.0" encoding="utf-8"?-->
-              <!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-              <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 100%; height: 100%; opacity: 1;" xml:space="preserve">
-                <style type="text/css">
-                
-                  .st0{fill:#4B4B4B;}
-                
-                </style>
-                <g>
-                  <path class="st0" d="M207.063,167.141c-1.031-0.609-2.344-0.641-3.406-0.031c-1.031,0.594-1.688,1.719-1.688,2.938v85.938v85.953
-                    c0,1.234,0.656,2.344,1.688,2.938c1.063,0.625,2.375,0.594,3.406-0.031l144-85.953c1.031-0.594,1.641-1.703,1.641-2.906
-                    c0-1.172-0.609-2.297-1.641-2.891L207.063,167.141z" style="fill: rgb(250, 250, 250);"></path>
-                  <path class="st0" d="M256,0C114.625,0,0,114.625,0,256s114.625,256,256,256s256-114.625,256-256S397.375,0,256,0z M256,448
-                    c-105.875,0-192-86.125-192-192S150.125,64,256,64s192,86.125,192,192S361.875,448,256,448z" style="fill: rgb(250, 250, 250);"></path>
-                </g>
-                </svg>
+              <img src="/images/start.svg" alt="start" class="w-full h-full" />
             </div>
             <!-- stop -->
             <div class="text-white mr-2 h-12 p-2" id="stop">
-              <!--?xml version="1.0" encoding="utf-8"?-->
-              <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-              <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 100%; height: 100%; opacity: 1;" xml:space="preserve">
-                <style type="text/css">
-                  .st0{fill:#4B4B4B;}
-                </style>
-                <g>
-                  <path class="st0" d="M256.002,0c-141.16,0-256,114.836-256,255.996c0,141.16,114.84,256.004,256,256.004
-                    c141.161,0,255.996-114.843,255.996-256.004C511.998,114.836,397.163,0,256.002,0z M256.002,466.046
-                    c-116,0-210.049-94.046-210.049-210.049c0-115.997,94.049-210.049,210.049-210.049c115.997,0,210.049,94.052,210.049,210.049
-                    C466.051,372,371.999,466.046,256.002,466.046z" style="fill: rgb(250, 250, 250);"></path>
-                  <rect x="196.925" y="196.922" class="st0" width="118.151" height="118.155" style="fill: rgb(250, 250, 250);"></rect>
-                </g>
-              </svg>
+              <img src="/images/stop.svg" alt="stop" class="w-full h-full" />
             </div>
             <div class="text-white" id="timer">00:00:00</div>
             <!-- reset -->
             <div class="text-white ml-2 h-12 p-2" id="reset">
-              <!--?xml version="1.0" encoding="utf-8"?-->
-              <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-              <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 100%; height: 100%; opacity: 1;" xml:space="preserve">
-                <style type="text/css">
-                  .st0{fill:#4B4B4B;}
-                </style>
-                <g>
-                  <path class="st0" d="M446.025,92.206c-40.762-42.394-97.487-69.642-160.383-72.182c-15.791-0.638-29.114,11.648-29.752,27.433
-                    c-0.638,15.791,11.648,29.114,27.426,29.76c47.715,1.943,90.45,22.481,121.479,54.681c30.987,32.235,49.956,75.765,49.971,124.011
-                    c-0.015,49.481-19.977,94.011-52.383,126.474c-32.462,32.413-76.999,52.368-126.472,52.382
-                    c-49.474-0.015-94.025-19.97-126.474-52.382c-32.405-32.463-52.368-76.992-52.382-126.474c0-3.483,0.106-6.938,0.302-10.364
-                    l34.091,16.827c3.702,1.824,8.002,1.852,11.35,0.086c3.362-1.788,5.349-5.137,5.264-8.896l-3.362-149.834
-                    c-0.114-4.285-2.88-8.357-7.094-10.464c-4.242-2.071-9.166-1.809-12.613,0.738L4.008,182.45c-3.05,2.221-4.498,5.831-3.86,9.577
-                    c0.61,3.759,3.249,7.143,6.966,8.974l35.722,17.629c-1.937,12.166-3.018,24.602-3.018,37.279
-                    c-0.014,65.102,26.475,124.31,69.153,166.944C151.607,465.525,210.8,492.013,275.91,492
-                    c65.095,0.014,124.302-26.475,166.937-69.146c42.678-42.635,69.167-101.842,69.154-166.944
-                    C512.014,192.446,486.844,134.565,446.025,92.206z" style="fill: rgb(250, 250, 250);"></path>
-                </g>
-              </svg>
+              <img src="/images/reset.svg" alt="reset" class="w-full h-full" />
             </div>
           </div>
         </div>
