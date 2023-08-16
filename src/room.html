@@ -54,6 +54,24 @@
         </nav>
       </header>
       <main class="h-full flex-grow overflow-y-auto">
+        <!-- timer -->
+        <div class="bg-gray-800">
+          <div class="flex items-center justify-center">
+            <!-- start -->
+            <div class="text-white mr-2 w-12 h-12 p-2" id="start">
+              <img src="/images/start.svg" alt="start" class="w-full h-full" />
+            </div>
+            <!-- stop -->
+            <div class="text-white mr-2 w-12 h-12 p-2" id="stop">
+              <img src="/images/stop.svg" alt="stop" class="w-full h-full" />
+            </div>
+            <div class="text-white" id="timer">00:00:00</div>
+            <!-- reset -->
+            <div class="text-white ml-2 w-12 h-12 p-2" id="reset">
+              <img src="/images/reset.svg" alt="reset" class="w-full h-full" />
+            </div>
+          </div>
+        </div>
         <div
           class="flex h-full w-full justify-center items-center flex-wrap md:flex-nowrap"
         >
@@ -82,26 +100,6 @@
           </button>
         </div>
       </main>
-      <footer>
-        <!-- timer -->
-        <div class="bg-gray-800">
-          <div class="flex items-center justify-center">
-            <!-- start -->
-            <div class="text-white mr-2 h-12 p-2" id="start">
-              <img src="/images/start.svg" alt="start" class="w-full h-full" />
-            </div>
-            <!-- stop -->
-            <div class="text-white mr-2 h-12 p-2" id="stop">
-              <img src="/images/stop.svg" alt="stop" class="w-full h-full" />
-            </div>
-            <div class="text-white" id="timer">00:00:00</div>
-            <!-- reset -->
-            <div class="text-white ml-2 h-12 p-2" id="reset">
-              <img src="/images/reset.svg" alt="reset" class="w-full h-full" />
-            </div>
-          </div>
-        </div>
-      </footer>
       <script src="/script/room.js"></script>
       <script src="/script/timer.js"></script>
     </div>
