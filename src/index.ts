@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("event", (value) => {
-    io.to(value.uuid).emit("event", value.event);
+    io.to(value.uuid).emit("event", value);
   });
 
   socket.on('page', (value) => {
