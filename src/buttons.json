@@ -1,0 +1,44 @@
+[
+  {
+    "url": "figma",
+    "next": "#react-page > div > div > div > div > div > div > div > div > div > div > div > button:nth-child(3)",
+    "prev": "#react-page > div > div > div > div > div > div > div > div > div > div > div > button:nth-child(1)",
+    "page": "#react-page > div > div > div > div > div > div > div > div > div > div > div > div"
+  },
+  {
+    "url": "onedrive",
+    "next": "#nextButton",
+    "prev": "#prevButton",
+    "page": ""
+  },
+  {
+    "url": "canva",
+    "next": "body > div:nth-child(2) > div > div > div > div > div > div > main > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(3) > button",
+    "prev": "body > div:nth-child(2) > div > div > div > div > div > div > main > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(1) > button",
+    "page": ""
+  },
+  {
+    "url": "hackmd",
+    "next": "body > div > div > aside > button.navigate-right",
+    "prev": "body > div > div > aside > button.navigate-left",
+    "page": ""
+  },
+  {
+    "url": "github",
+    "next": "#\\:\\$p > div > button:nth-child(3)",
+    "prev": "#\\:\\$p > div > button:nth-child(1)",
+    "page": ""
+  },
+  {
+    "url": "pitch",
+    "next": "#app > div > div > div > div > div:nth-child(1) > div > button:nth-child(3)",
+    "prev": "#app > div > div > div > div > div:nth-child(1) > div > button:nth-child(1)",
+    "page": ""
+  },
+  {
+    "url": "slideshare",
+    "next": "#next-slide",
+    "prev": "#previous-slide",
+    "page": ""
+  }
+]

@@ -27,6 +27,10 @@ app.get("/room/:roomId", async (_, res) => {
   res.sendFile(__dirname + "/room.html");
 });
 
+app.get("/buttons", async (_, res) => {
+  res.sendFile(__dirname + "/buttons.json");
+});
+
 // api route
 app.get("/uuid", (req, res) => {
   res.json({ uuid: shortid.generate() });
@@ -47,6 +51,10 @@ io.on("connection", (socket) => {
 
   socket.on("event", (value) => {
     io.to(value.uuid).emit("event", value.event);
+  });
+
+  socket.on('page', (value) => {
+    io.to(value.uuid).emit('page', value);
   });
 
   socket.on("disconnect", () => {

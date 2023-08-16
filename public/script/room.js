@@ -12,6 +12,14 @@ socket.on("event", (value) => {
   console.log(value);
 });
 
+// socket.emit('page', { page: "12", url: url});
+// socket.on('page', (value) => {
+//   io.to(value.uuid).emit('page', value);
+// });
+socket.on("page", (value) => {
+  console.log(value);
+});
+
 const noteContainer = document.getElementById("noteContainer");
 const note = document.getElementById("note");
 const page = document.getElementById("page");
