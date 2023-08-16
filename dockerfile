@@ -7,10 +7,6 @@ COPY . .
 RUN yarn --frozen-lockfile && \
     yarn build
 
-FROM nginx:1.21.1-alpine
+ENV PORT=80
 
-# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-
-COPY --from=builder /usr/local/app/dist /usr/share/nginx/html
-
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD [ "yarn", "start" ]
