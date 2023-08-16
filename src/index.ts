@@ -57,8 +57,8 @@ io.on("connection", (socket) => {
     io.to(value.uuid).emit('page', value);
   });
 
-  socket.on("text", (value) => {
-    io.to(value.uuid).emit("text", value);
+  socket.on("note", (value) => {
+    io.to(value.uuid).emit("note", value);
   });
 
   socket.on("disconnect", () => {

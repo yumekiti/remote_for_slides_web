@@ -1,4 +1,5 @@
 const note = document.getElementById("note");
+const pageContainer = document.getElementById("pageContainer");
 const page = document.getElementById("page");
 
 const [_, _room, roomId] = location.pathname.split("/");
@@ -16,14 +17,14 @@ socket.on("event", (value) => {
 });
 
 note.style.display = "none";
-page.style.display = "none";
+pageContainer.style.display = "none";
 
 socket.on("page", (value) => {
-  page.style.display = "block";
+  pageContainer.style.display = "block";
   page.textContent = value.page;
 });
 
-socket.on("text", (value) => {
+socket.on("note", (value) => {
   note.style.display = "block";
   note.textContent = value.text;
 });
