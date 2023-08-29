@@ -1,0 +1,38 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Get Docker credentials
+      id: docker-login
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+    - name: Build and push Docker image
+      id: build-image
+      run: |
+        DOCKER_TAG=$(git rev-parse --short HEAD)
+        docker buildx build --tag yumekiti/slidesync:${DOCKER_TAG} --file Dockerfile --platform linux/amd64,linux/arm64 --push .
+
+    - name: Update ArgoCD version in deployment manifest
+      id: update-argocd-version
+      run: |
+        DOCKER_TAG=$(git rev-parse --short HEAD)
+        sed -i "s/yumekiti\/slidesync:.*/yumekiti\/slidesync:${DOCKER_TAG}/" .argocd/deployment.yaml
+        git config --global user.name '${{ secrets.GIT_USERNAME }}'
+        git config --global user.email '${{ secrets.GIT_USEREMAIL }}'
+        git add .argocd/deployment.yaml
+        git commit --no-verify -m "Update ArgoCD version to ${DOCKER_TAG}"
+        git push origin main
