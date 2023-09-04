@@ -40,5 +40,11 @@
     "next": "#next-slide",
     "prev": "#previous-slide",
     "page": ""
+  },
+  {
+    "url": "marplify",
+    "next": "#root > div > div > div > div > button:nth-child(3)",
+    "prev": "#root > div > div > div > div > button:nth-child(1)",
+    "page": "#root > div > div > div > div > span"
   }
 ]
