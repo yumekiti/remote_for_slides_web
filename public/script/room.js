@@ -47,4 +47,4 @@ const main = async () => {
   });
 };
 
-setTimeout(async () => await main(), 300);
+setTimeout(async () => await main(), 500);
