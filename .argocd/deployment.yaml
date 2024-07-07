@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: slidesync
-        image: yumekiti/slidesync:88e7513
+        image: yumekiti/slidesync:eaddf7a
         ports:
         - containerPort: 80
