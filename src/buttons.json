@@ -43,8 +43,8 @@
   },
   {
     "url": "marplify",
-    "next": "#root > div > div > div > div > button:nth-child(3)",
-    "prev": "#root > div > div > div > div > button:nth-child(1)",
-    "page": "#root > div > div > div > div > span"
+    "next": "#root > div > div > div > button:nth-child(3)",
+    "prev": "#root > div > div > div > button:nth-child(1)",
+    "page": "#root > div > div > div > span"
   }
 ]
