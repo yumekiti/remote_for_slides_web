@@ -17,7 +17,6 @@ const main = async () => {
     console.log(value);
   });
 
-  note.style.display = "none";
   pageContainer.style.display = "none";
 
   socket.on("page", (value) => {
@@ -32,6 +31,7 @@ const main = async () => {
 
   const [prevButton, nextButton] = document.querySelectorAll("button");
   prevButton.addEventListener("click", () => {
+    console.log("prev");
     data = {
       uuid: roomId,
       event: "prev",
@@ -39,6 +39,7 @@ const main = async () => {
     socket.emit("event", data);
   });
   nextButton.addEventListener("click", () => {
+    console.log("next");
     data = {
       uuid: roomId,
       event: "next",
